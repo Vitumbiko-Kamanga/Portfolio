@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap');
 
 
+/* =========================================================
+   THEME
+   ========================================================= */
+
 :root {
   --bg: #0b1118;
   --bg-soft: #101821;
@@ -18,8 +22,10 @@
 
   --shadow: rgba(0, 0, 0, .28);
 
+  /* Green navigation */
   --nav-bg: #0d211e;
 }
+
 
 :root[data-theme="light"] {
   --bg: #f6f8fa;
@@ -41,6 +47,8 @@
   --nav-bg: #eaf5f3;
 }
 
+
+/* Respect device light mode when no manual theme is selected */
 @media (prefers-color-scheme: light) {
   :root:not([data-theme="dark"]) {
     --bg: #f6f8fa;
@@ -62,6 +70,11 @@
     --nav-bg: #eaf5f3;
   }
 }
+
+
+/* =========================================================
+   RESET / BASE
+   ========================================================= */
 
 * {
   box-sizing: border-box;
@@ -105,7 +118,6 @@ h6 {
   margin: 0;
 
   line-height: 1.18;
-
   letter-spacing: -.02em;
 }
 
@@ -131,7 +143,6 @@ img {
 
 section {
   position: relative;
-
   width: 100%;
 
   padding: 4rem 1.5rem;
@@ -139,48 +150,50 @@ section {
 
 .wrap {
   width: 100%;
-
   max-width: 1080px;
-
   margin: 0 auto;
 }
 
 .narrow {
   width: 100%;
-
   max-width: 720px;
-
   margin: 0 auto;
 }
 
+
 /* =========================================================
-   NAVIGATION
+   FLOATING NAVIGATION
    ========================================================= */
 
 nav {
   position: sticky;
-
-  top: 0;
+  top: 14px;
 
   z-index: 1000;
 
-  width: 100%;
+  width: min(1080px, calc(100% - 2rem));
 
-  min-height: 60px;
+  min-height: 58px;
+
+  margin: 14px auto 0;
 
   display: flex;
-
   align-items: center;
   justify-content: space-between;
 
-  padding: .75rem 1.5rem;
+  gap: 1rem;
+
+  padding: .65rem 1rem;
 
   background: var(--nav-bg);
 
-  border-bottom: 1px solid var(--border);
+  border: 1px solid var(--border);
+  border-radius: 14px;
 
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 10px 28px var(--shadow);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 
   isolation: isolate;
 }
@@ -203,7 +216,6 @@ nav {
 
 .nav-controls {
   display: flex;
-
   align-items: center;
 
   gap: .85rem;
@@ -211,7 +223,6 @@ nav {
 
 .nav-links {
   display: flex;
-
   align-items: center;
 
   gap: 1.5rem;
@@ -223,7 +234,6 @@ nav {
   color: var(--ink-dim);
 
   font-size: .84rem;
-
   font-weight: 600;
 
   padding: .35rem 0;
@@ -261,6 +271,9 @@ nav {
   transform: scaleX(1);
 }
 
+
+/* Theme button */
+
 .theme-toggle {
   height: 34px;
 
@@ -294,6 +307,9 @@ nav {
   transform: translateY(-1px);
 }
 
+
+/* Mobile menu button */
+
 .nav-toggle {
   display: none;
 
@@ -309,6 +325,11 @@ nav {
 
   padding: .2rem;
 }
+
+
+/* =========================================================
+   PAGE ANIMATIONS
+   ========================================================= */
 
 .page.active {
   animation: pageIn .4s ease both;
@@ -340,7 +361,6 @@ nav {
 
 .reveal.is-visible {
   opacity: 1;
-
   transform: none;
 }
 
@@ -364,6 +384,11 @@ nav {
   color: var(--accent);
 }
 
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
 .btn {
   display: inline-flex;
 
@@ -377,7 +402,6 @@ nav {
   border-radius: 8px;
 
   font-weight: 700;
-
   font-size: .86rem;
 
   cursor: pointer;
@@ -425,15 +449,17 @@ nav {
 }
 
 
+/* =========================================================
+   HOME HERO
+   ========================================================= */
+
 .hero {
   min-height: calc(100vh - 60px);
 
   display: flex;
-
   align-items: center;
 
   padding-top: 4.5rem;
-
   padding-bottom: 4.5rem;
 }
 
@@ -552,8 +578,9 @@ nav {
   font-weight: 800;
 }
 
+
 /* =========================================================
-   PROFILE PHOTO
+   HOME PROFILE PHOTO
    ========================================================= */
 
 .photo-blob-wrap {
@@ -575,7 +602,6 @@ nav {
   z-index: 1;
 
   width: 320px;
-
   height: 320px;
 
   display: flex;
@@ -596,7 +622,6 @@ nav {
 
 .photo-frame img {
   width: 100%;
-
   height: 100%;
 
   object-fit: cover;
@@ -607,6 +632,7 @@ nav {
 }
 
 @keyframes floatPhoto {
+
   0%,
   100% {
     transform: translateY(0);
@@ -616,6 +642,7 @@ nav {
     transform: translateY(-6px);
   }
 }
+
 
 /* =========================================================
    TECHNOLOGIES
@@ -703,8 +730,9 @@ nav {
   }
 }
 
+
 /* =========================================================
-   GENERAL CARDS / HEADINGS
+   GENERAL COMPONENTS
    ========================================================= */
 
 .card {
@@ -768,8 +796,9 @@ nav {
   font-weight: 700;
 }
 
+
 /* =========================================================
-   STATUS
+   STATUS CARD
    ========================================================= */
 
 .status-card {
@@ -784,7 +813,6 @@ nav {
 
 .status-dot {
   width: 9px;
-
   height: 9px;
 
   border-radius: 50%;
@@ -797,6 +825,7 @@ nav {
 }
 
 @keyframes pulse {
+
   0%,
   100% {
     opacity: .65;
@@ -820,6 +849,7 @@ nav {
 
   font-size: .88rem;
 }
+
 
 /* =========================================================
    INTERNAL PAGE HEADER
@@ -869,10 +899,6 @@ nav {
   hyphens: auto;
 }
 
-/* =========================================================
-   INTERNAL PAGE SPACING
-   ========================================================= */
-
 .page > section:not(.page-hero) {
   padding-top: 3rem;
 
@@ -891,8 +917,9 @@ nav {
   max-width: 26ch;
 }
 
+
 /* =========================================================
-   ABOUT PROFILE
+   ABOUT — PROFILE
    ========================================================= */
 
 .about-section {
@@ -975,6 +1002,7 @@ nav {
   margin-bottom: 0;
 }
 
+
 /* =========================================================
    EDUCATION
    ========================================================= */
@@ -988,6 +1016,7 @@ nav {
 
   align-items: stretch;
 }
+
 
 /* Left education card */
 
@@ -1051,6 +1080,7 @@ nav {
   margin: 1rem 0 0;
 }
 
+
 /* Right coursework card */
 
 .modules-panel {
@@ -1069,7 +1099,8 @@ nav {
   font-weight: 700;
 }
 
-/* Two modules per row */
+
+/* 2 x 2 coursework layout */
 
 .module-grid {
   display: grid;
@@ -1131,6 +1162,7 @@ nav {
 
   font-weight: 600;
 }
+
 
 /* =========================================================
    SKILLS
@@ -1214,6 +1246,7 @@ nav {
   line-height: 1.6;
 }
 
+
 /* =========================================================
    TIMELINE
    ========================================================= */
@@ -1236,7 +1269,6 @@ nav {
   left: 3px;
 
   top: 5px;
-
   bottom: 5px;
 
   width: 1px;
@@ -1264,7 +1296,6 @@ nav {
   top: 4px;
 
   width: 7px;
-
   height: 7px;
 
   border-radius: 50%;
@@ -1305,6 +1336,7 @@ nav {
 
   hyphens: auto;
 }
+
 
 /* =========================================================
    PROJECTS
@@ -1417,6 +1449,7 @@ nav {
   color: var(--ink-dim);
 }
 
+
 /* =========================================================
    CONTACT
    ========================================================= */
@@ -1477,7 +1510,6 @@ nav {
 
 .social-icon {
   width: 40px;
-
   height: 40px;
 
   border-radius: 8px;
@@ -1489,7 +1521,6 @@ nav {
   display: flex;
 
   align-items: center;
-
   justify-content: center;
 
   font-size: .9rem;
@@ -1504,6 +1535,9 @@ nav {
 
   border-color: var(--border-strong);
 }
+
+
+/* Contact form */
 
 .contact-form {
   display: flex;
@@ -1587,6 +1621,7 @@ textarea.form-field {
   box-shadow: 0 8px 20px var(--shadow);
 }
 
+
 /* =========================================================
    FOOTER
    ========================================================= */
@@ -1663,23 +1698,26 @@ footer {
   border-top: 1px solid var(--border);
 }
 
+
 /* =========================================================
-   TABLET
+   TABLET — 900px
    ========================================================= */
 
 @media (max-width: 900px) {
 
   section {
     padding-left: 1.25rem;
-
     padding-right: 1.25rem;
+  }
+
+  nav {
+    width: min(94%, 900px);
   }
 
   .hero {
     min-height: auto;
 
     padding-top: 4rem;
-
     padding-bottom: 4rem;
   }
 
@@ -1717,7 +1755,8 @@ footer {
     margin: 0 auto;
   }
 
-  /* Education */
+
+  /* Keep Education side-by-side on tablet */
 
   .education-layout {
     grid-template-columns: 1fr 1fr;
@@ -1769,8 +1808,9 @@ footer {
   }
 }
 
+
 /* =========================================================
-   MOBILE
+   MOBILE — 720px
    ========================================================= */
 
 @media (max-width: 720px) {
@@ -1797,24 +1837,29 @@ footer {
     max-width: 100%;
   }
 
+
   /* -------------------------------------------------------
-     NAV
+     FLOATING MOBILE NAV
      ------------------------------------------------------- */
 
   nav {
     position: sticky;
 
-    top: 0;
+    top: 8px;
 
     z-index: 1000;
 
-    width: 100%;
+    width: calc(100% - 1rem);
 
-    min-height: 58px;
+    min-height: 56px;
 
-    padding: .75rem 1rem;
+    margin: 8px auto 0;
 
-    isolation: isolate;
+    padding: .65rem .8rem;
+
+    border-radius: 12px;
+
+    box-shadow: 0 8px 22px var(--shadow);
   }
 
   .brand {
@@ -1833,24 +1878,28 @@ footer {
     font-size: .66rem;
   }
 
+
+  /* Mobile menu */
+
   .nav-links {
     position: fixed;
 
-    top: 58px;
+    top: 72px;
 
-    left: 0;
+    left: .5rem;
+    right: .5rem;
 
-    right: 0;
+    width: calc(100% - 1rem);
 
-    bottom: 0;
+    height: calc(100dvh - 80px);
 
-    width: 100%;
-
-    height: calc(100dvh - 58px);
-
-    padding: 1rem 1rem 2rem;
+    padding: 1rem;
 
     background: var(--bg);
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
 
     opacity: 1;
 
@@ -1870,7 +1919,7 @@ footer {
 
     overflow-x: hidden;
 
-    transform: translateX(100%);
+    transform: translateY(-10px);
 
     transition:
       transform .25s ease,
@@ -1884,7 +1933,7 @@ footer {
   }
 
   .nav-links.open {
-    transform: translateX(0);
+    transform: translateY(0);
 
     visibility: visible;
 
@@ -1942,7 +1991,6 @@ footer {
     justify-content: center;
 
     width: 36px;
-
     height: 36px;
 
     background: var(--bg-elevated);
@@ -1953,6 +2001,7 @@ footer {
 
     color: var(--ink);
   }
+
 
   /* -------------------------------------------------------
      HOME
@@ -2012,9 +2061,8 @@ footer {
     width: 100%;
   }
 
-  /* -------------------------------------------------------
-     PROFILE
-     ------------------------------------------------------- */
+
+  /* Home photo */
 
   .photo-blob-wrap {
     width: 100%;
@@ -2030,15 +2078,13 @@ footer {
 
   .photo-frame {
     width: 250px;
-
     height: 250px;
 
     border-width: 3px;
   }
 
-  /* -------------------------------------------------------
-     TECHNOLOGIES
-     ------------------------------------------------------- */
+
+  /* Technologies */
 
   .tech-grid-wrap {
     margin-top: 2rem;
@@ -2057,6 +2103,7 @@ footer {
 
     padding: .5rem .25rem;
   }
+
 
   /* -------------------------------------------------------
      INTERNAL PAGE HEADER
@@ -2100,10 +2147,6 @@ footer {
     hyphens: auto;
   }
 
-  /* -------------------------------------------------------
-     INTERNAL PAGE SPACING
-     ------------------------------------------------------- */
-
   .page > section:not(.page-hero) {
     padding-top: 2.5rem;
 
@@ -2120,10 +2163,6 @@ footer {
     max-width: 100%;
   }
 
-  /* -------------------------------------------------------
-     SECTION HEADINGS
-     ------------------------------------------------------- */
-
   .section-head h2 {
     max-width: 100%;
 
@@ -2139,9 +2178,8 @@ footer {
     margin-bottom: .4rem;
   }
 
-  /* -------------------------------------------------------
-     TEXT
-     ------------------------------------------------------- */
+
+  /* Text blocks */
 
   .intro-copy,
   .about-prose p,
@@ -2154,6 +2192,7 @@ footer {
 
     hyphens: auto;
   }
+
 
   /* -------------------------------------------------------
      ABOUT
@@ -2217,6 +2256,7 @@ footer {
     margin-bottom: .9rem;
   }
 
+
   /* -------------------------------------------------------
      EDUCATION
      ------------------------------------------------------- */
@@ -2262,7 +2302,8 @@ footer {
     margin-bottom: .9rem;
   }
 
-  /* Keep 2 columns on normal phones */
+
+  /* Keep coursework 2 x 2 on phones */
 
   .module-grid {
     grid-template-columns: 1fr 1fr;
@@ -2281,6 +2322,7 @@ footer {
 
     line-height: 1.35;
   }
+
 
   /* -------------------------------------------------------
      SKILLS
@@ -2301,6 +2343,7 @@ footer {
   .skill-row-label {
     font-size: .76rem;
   }
+
 
   /* -------------------------------------------------------
      TIMELINE
@@ -2333,6 +2376,7 @@ footer {
 
     line-height: 1.68;
   }
+
 
   /* -------------------------------------------------------
      PROJECTS
@@ -2373,6 +2417,7 @@ footer {
 
     padding: .25rem .42rem;
   }
+
 
   /* -------------------------------------------------------
      CONTACT
@@ -2422,6 +2467,7 @@ footer {
     min-height: 130px;
   }
 
+
   /* -------------------------------------------------------
      FOOTER
      ------------------------------------------------------- */
@@ -2456,8 +2502,9 @@ footer {
   }
 }
 
+
 /* =========================================================
-   SMALL ANDROID PHONES
+   SMALL ANDROID — 420px
    ========================================================= */
 
 @media (max-width: 420px) {
@@ -2469,9 +2516,15 @@ footer {
   }
 
   nav {
-    padding-left: .85rem;
+    width: calc(100% - .8rem);
 
-    padding-right: .85rem;
+    top: 6px;
+
+    margin-top: 6px;
+
+    padding-left: .7rem;
+
+    padding-right: .7rem;
   }
 
   .brand {
@@ -2483,8 +2536,6 @@ footer {
 
     font-size: .6rem;
   }
-
-  /* Home */
 
   .hero {
     padding-top: 2.5rem;
@@ -2514,8 +2565,6 @@ footer {
     text-overflow: ellipsis;
   }
 
-  /* Profile */
-
   .photo-blob-wrap {
     min-height: 260px;
   }
@@ -2526,7 +2575,8 @@ footer {
     height: 220px;
   }
 
-  /* Internal pages */
+
+  /* Internal page */
 
   .page-hero {
     padding-top: 2.2rem;
@@ -2560,9 +2610,6 @@ footer {
     padding: 1.1rem;
   }
 
-  .project-card {
-    padding: 1rem;
-  }
 
   /* About */
 
@@ -2586,6 +2633,7 @@ footer {
 
     line-height: 1.7;
   }
+
 
   /* Education */
 
@@ -2632,6 +2680,7 @@ footer {
     font-size: .65rem;
   }
 
+
   /* Technologies */
 
   .tech-grid {
@@ -2644,6 +2693,7 @@ footer {
     font-size: .62rem;
   }
 
+
   /* Footer */
 
   .footer-grid {
@@ -2653,16 +2703,19 @@ footer {
   }
 }
 
+
 /* =========================================================
-   VERY SMALL PHONES
+   VERY SMALL PHONES — 340px
    ========================================================= */
 
 @media (max-width: 340px) {
 
   nav {
-    padding-left: .7rem;
+    width: calc(100% - .6rem);
 
-    padding-right: .7rem;
+    padding-left: .65rem;
+
+    padding-right: .65rem;
   }
 
   .brand {
@@ -2691,6 +2744,9 @@ footer {
     min-height: 225px;
   }
 
+
+  /* Internal page */
+
   .page-hero {
     padding-top: 2rem;
 
@@ -2715,6 +2771,9 @@ footer {
     padding-bottom: 1.9rem;
   }
 
+
+  /* About */
+
   .about-section,
   .compact-section {
     padding-top: 1.8rem;
@@ -2728,9 +2787,9 @@ footer {
     line-height: 1.67;
   }
 
-  /* On extremely narrow phones,
-     modules become one per row to avoid
-     awkward word wrapping. */
+
+  /* Very narrow phones:
+     coursework becomes one column */
 
   .module-grid {
     grid-template-columns: 1fr;
@@ -2740,10 +2799,14 @@ footer {
     min-height: 58px;
   }
 
+
+  /* Technologies */
+
   .tech-grid {
     grid-template-columns: 1fr 1fr;
   }
 }
+
 
 /* =========================================================
    REDUCED MOTION
