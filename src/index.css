@@ -26,7 +26,6 @@
   --nav-bg: #0d211e;
 }
 
-
 :root[data-theme="light"] {
   --bg: #f6f8fa;
   --bg-soft: #eef2f5;
@@ -47,8 +46,6 @@
   --nav-bg: #eaf5f3;
 }
 
-
-/* Respect device light mode when no manual theme is selected */
 @media (prefers-color-scheme: light) {
   :root:not([data-theme="dark"]) {
     --bg: #f6f8fa;
@@ -118,6 +115,7 @@ h6 {
   margin: 0;
 
   line-height: 1.18;
+
   letter-spacing: -.02em;
 }
 
@@ -127,6 +125,7 @@ p {
 
 a {
   color: inherit;
+
   text-decoration: none;
 }
 
@@ -138,11 +137,13 @@ textarea {
 
 img {
   max-width: 100%;
+
   display: block;
 }
 
 section {
   position: relative;
+
   width: 100%;
 
   padding: 4rem 1.5rem;
@@ -150,50 +151,55 @@ section {
 
 .wrap {
   width: 100%;
+
   max-width: 1080px;
+
   margin: 0 auto;
 }
 
 .narrow {
   width: 100%;
+
   max-width: 720px;
+
   margin: 0 auto;
 }
 
 
 /* =========================================================
-   FLOATING NAVIGATION
+   STICKY NAVIGATION
    ========================================================= */
 
 nav {
   position: sticky;
-  top: 14px;
+
+  top: 0;
 
   z-index: 1000;
 
-  width: min(1080px, calc(100% - 2rem));
+  width: 100%;
 
-  min-height: 58px;
+  min-height: 60px;
 
-  margin: 14px auto 0;
+  margin: 0;
 
   display: flex;
+
   align-items: center;
+
   justify-content: space-between;
 
-  gap: 1rem;
-
-  padding: .65rem 1rem;
+  padding: .75rem 1.5rem;
 
   background: var(--nav-bg);
 
-  border: 1px solid var(--border);
-  border-radius: 14px;
+  border-bottom: 1px solid var(--border);
 
-  box-shadow: 0 10px 28px var(--shadow);
+  box-shadow: 0 4px 16px var(--shadow);
 
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(10px);
+
+  -webkit-backdrop-filter: blur(10px);
 
   isolation: isolate;
 }
@@ -216,6 +222,7 @@ nav {
 
 .nav-controls {
   display: flex;
+
   align-items: center;
 
   gap: .85rem;
@@ -223,6 +230,7 @@ nav {
 
 .nav-links {
   display: flex;
+
   align-items: center;
 
   gap: 1.5rem;
@@ -234,6 +242,7 @@ nav {
   color: var(--ink-dim);
 
   font-size: .84rem;
+
   font-weight: 600;
 
   padding: .35rem 0;
@@ -247,9 +256,11 @@ nav {
   position: absolute;
 
   left: 0;
+
   bottom: 0;
 
   width: 100%;
+
   height: 1px;
 
   background: var(--accent);
@@ -270,9 +281,6 @@ nav {
 .nav-links a.active::after {
   transform: scaleX(1);
 }
-
-
-/* Theme button */
 
 .theme-toggle {
   height: 34px;
@@ -307,9 +315,6 @@ nav {
   transform: translateY(-1px);
 }
 
-
-/* Mobile menu button */
-
 .nav-toggle {
   display: none;
 
@@ -328,7 +333,7 @@ nav {
 
 
 /* =========================================================
-   PAGE ANIMATIONS
+   ANIMATIONS
    ========================================================= */
 
 .page.active {
@@ -338,11 +343,13 @@ nav {
 @keyframes pageIn {
   from {
     opacity: 0;
+
     transform: translateY(6px);
   }
 
   to {
     opacity: 1;
+
     transform: none;
   }
 }
@@ -361,6 +368,7 @@ nav {
 
 .reveal.is-visible {
   opacity: 1;
+
   transform: none;
 }
 
@@ -371,11 +379,13 @@ nav {
 @keyframes heroTitle {
   from {
     opacity: 0;
+
     transform: translateY(10px);
   }
 
   to {
     opacity: 1;
+
     transform: none;
   }
 }
@@ -393,6 +403,7 @@ nav {
   display: inline-flex;
 
   align-items: center;
+
   justify-content: center;
 
   min-height: 42px;
@@ -402,6 +413,7 @@ nav {
   border-radius: 8px;
 
   font-weight: 700;
+
   font-size: .86rem;
 
   cursor: pointer;
@@ -457,9 +469,11 @@ nav {
   min-height: calc(100vh - 60px);
 
   display: flex;
+
   align-items: center;
 
   padding-top: 4.5rem;
+
   padding-bottom: 4.5rem;
 }
 
@@ -505,6 +519,7 @@ nav {
   content: "";
 
   width: 5px;
+
   height: 5px;
 
   border-radius: 50%;
@@ -580,7 +595,7 @@ nav {
 
 
 /* =========================================================
-   HOME PROFILE PHOTO
+   PROFILE PHOTO
    ========================================================= */
 
 .photo-blob-wrap {
@@ -593,6 +608,7 @@ nav {
   display: flex;
 
   align-items: center;
+
   justify-content: center;
 }
 
@@ -602,11 +618,13 @@ nav {
   z-index: 1;
 
   width: 320px;
+
   height: 320px;
 
   display: flex;
 
   align-items: center;
+
   justify-content: center;
 
   background: var(--bg-elevated);
@@ -622,6 +640,7 @@ nav {
 
 .photo-frame img {
   width: 100%;
+
   height: 100%;
 
   object-fit: cover;
@@ -680,6 +699,7 @@ nav {
   display: flex;
 
   align-items: center;
+
   justify-content: center;
 
   min-height: 52px;
@@ -721,18 +741,20 @@ nav {
 @keyframes techIn {
   from {
     opacity: 0;
+
     transform: translateY(8px);
   }
 
   to {
     opacity: 1;
+
     transform: none;
   }
 }
 
 
 /* =========================================================
-   GENERAL COMPONENTS
+   GENERAL
    ========================================================= */
 
 .card {
@@ -798,7 +820,7 @@ nav {
 
 
 /* =========================================================
-   STATUS CARD
+   STATUS
    ========================================================= */
 
 .status-card {
@@ -813,6 +835,7 @@ nav {
 
 .status-dot {
   width: 9px;
+
   height: 9px;
 
   border-radius: 50%;
@@ -919,7 +942,7 @@ nav {
 
 
 /* =========================================================
-   ABOUT — PROFILE
+   ABOUT
    ========================================================= */
 
 .about-section {
@@ -1017,9 +1040,6 @@ nav {
   align-items: stretch;
 }
 
-
-/* Left education card */
-
 .education-info {
   display: flex;
 
@@ -1080,9 +1100,6 @@ nav {
   margin: 1rem 0 0;
 }
 
-
-/* Right coursework card */
-
 .modules-panel {
   min-height: 260px;
 }
@@ -1098,9 +1115,6 @@ nav {
 
   font-weight: 700;
 }
-
-
-/* 2 x 2 coursework layout */
 
 .module-grid {
   display: grid;
@@ -1227,6 +1241,7 @@ nav {
 }
 
 @keyframes barIn {
+
   from {
     transform: scaleX(0);
   }
@@ -1269,6 +1284,7 @@ nav {
   left: 3px;
 
   top: 5px;
+
   bottom: 5px;
 
   width: 1px;
@@ -1296,6 +1312,7 @@ nav {
   top: 4px;
 
   width: 7px;
+
   height: 7px;
 
   border-radius: 50%;
@@ -1510,6 +1527,7 @@ nav {
 
 .social-icon {
   width: 40px;
+
   height: 40px;
 
   border-radius: 8px;
@@ -1521,6 +1539,7 @@ nav {
   display: flex;
 
   align-items: center;
+
   justify-content: center;
 
   font-size: .9rem;
@@ -1537,7 +1556,9 @@ nav {
 }
 
 
-/* Contact form */
+/* =========================================================
+   CONTACT FORM
+   ========================================================= */
 
 .contact-form {
   display: flex;
@@ -1707,17 +1728,15 @@ footer {
 
   section {
     padding-left: 1.25rem;
-    padding-right: 1.25rem;
-  }
 
-  nav {
-    width: min(94%, 900px);
+    padding-right: 1.25rem;
   }
 
   .hero {
     min-height: auto;
 
     padding-top: 4rem;
+
     padding-bottom: 4rem;
   }
 
@@ -1754,9 +1773,6 @@ footer {
 
     margin: 0 auto;
   }
-
-
-  /* Keep Education side-by-side on tablet */
 
   .education-layout {
     grid-template-columns: 1fr 1fr;
@@ -1839,27 +1855,27 @@ footer {
 
 
   /* -------------------------------------------------------
-     FLOATING MOBILE NAV
+     STICKY MOBILE NAV
      ------------------------------------------------------- */
 
   nav {
     position: sticky;
 
-    top: 8px;
+    top: 0;
 
     z-index: 1000;
 
-    width: calc(100% - 1rem);
+    width: 100%;
 
-    min-height: 56px;
+    min-height: 58px;
 
-    margin: 8px auto 0;
+    margin: 0;
 
-    padding: .65rem .8rem;
+    padding: .75rem 1rem;
 
-    border-radius: 12px;
+    border-radius: 0;
 
-    box-shadow: 0 8px 22px var(--shadow);
+    box-shadow: 0 4px 16px var(--shadow);
   }
 
   .brand {
@@ -1879,27 +1895,26 @@ footer {
   }
 
 
-  /* Mobile menu */
+  /* Mobile navigation panel */
 
   .nav-links {
     position: fixed;
 
-    top: 72px;
+    top: 58px;
 
-    left: .5rem;
-    right: .5rem;
+    left: 0;
 
-    width: calc(100% - 1rem);
+    right: 0;
 
-    height: calc(100dvh - 80px);
+    bottom: 0;
 
-    padding: 1rem;
+    width: 100%;
+
+    height: calc(100dvh - 58px);
+
+    padding: 1rem 1rem 2rem;
 
     background: var(--bg);
-
-    border: 1px solid var(--border);
-
-    border-radius: 12px;
 
     opacity: 1;
 
@@ -1919,7 +1934,7 @@ footer {
 
     overflow-x: hidden;
 
-    transform: translateY(-10px);
+    transform: translateX(100%);
 
     transition:
       transform .25s ease,
@@ -1933,7 +1948,7 @@ footer {
   }
 
   .nav-links.open {
-    transform: translateY(0);
+    transform: translateX(0);
 
     visibility: visible;
 
@@ -1991,6 +2006,7 @@ footer {
     justify-content: center;
 
     width: 36px;
+
     height: 36px;
 
     background: var(--bg-elevated);
@@ -2061,9 +2077,6 @@ footer {
     width: 100%;
   }
 
-
-  /* Home photo */
-
   .photo-blob-wrap {
     width: 100%;
 
@@ -2078,13 +2091,11 @@ footer {
 
   .photo-frame {
     width: 250px;
+
     height: 250px;
 
     border-width: 3px;
   }
-
-
-  /* Technologies */
 
   .tech-grid-wrap {
     margin-top: 2rem;
@@ -2179,7 +2190,9 @@ footer {
   }
 
 
-  /* Text blocks */
+  /* -------------------------------------------------------
+     TEXT ALIGNMENT
+     ------------------------------------------------------- */
 
   .intro-copy,
   .about-prose p,
@@ -2301,9 +2314,6 @@ footer {
   .modules-heading {
     margin-bottom: .9rem;
   }
-
-
-  /* Keep coursework 2 x 2 on phones */
 
   .module-grid {
     grid-template-columns: 1fr 1fr;
@@ -2516,15 +2526,15 @@ footer {
   }
 
   nav {
-    width: calc(100% - .8rem);
+    width: 100%;
 
-    top: 6px;
+    top: 0;
 
-    margin-top: 6px;
+    margin: 0;
 
-    padding-left: .7rem;
+    padding-left: .85rem;
 
-    padding-right: .7rem;
+    padding-right: .85rem;
   }
 
   .brand {
@@ -2711,11 +2721,9 @@ footer {
 @media (max-width: 340px) {
 
   nav {
-    width: calc(100% - .6rem);
+    padding-left: .7rem;
 
-    padding-left: .65rem;
-
-    padding-right: .65rem;
+    padding-right: .7rem;
   }
 
   .brand {
@@ -2788,8 +2796,8 @@ footer {
   }
 
 
-  /* Very narrow phones:
-     coursework becomes one column */
+  /* Coursework becomes one column only
+     when the screen is extremely narrow */
 
   .module-grid {
     grid-template-columns: 1fr;
@@ -2809,7 +2817,7 @@ footer {
 
 
 /* =========================================================
-   REDUCED MOTION
+   ACCESSIBILITY — REDUCED MOTION
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
