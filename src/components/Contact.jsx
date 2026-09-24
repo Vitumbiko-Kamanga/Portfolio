@@ -63,10 +63,8 @@ ${form.message}`
               </h2>
 
               <p>
-                I'm a final-year IT student and mobile &amp; web developer,
-                open to internships, freelance work, and entry-level
-                opportunities. Have a project in mind or a role to discuss?
-                Send a message and I'll get back to you.
+                Have a project in mind or a role to discuss? <br />
+                Send a message and I will get back to you.
               </p>
 
               {/* SOCIAL / CONTACT ICONS */}
